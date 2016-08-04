@@ -1,0 +1,22 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "manageraccount",
+            "otherEntityName": "manageraccount",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "project"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160804112232",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "project",
+    "pagination": "pagination"
+}
