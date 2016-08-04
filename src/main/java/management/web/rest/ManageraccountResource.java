@@ -103,8 +103,10 @@ public class ManageraccountResource {
         throws URISyntaxException {
         log.debug("REST request to get a page of Manageraccounts");
         Page<Manageraccount> page = manageraccountRepository.findAll(pageable);
+        //TODO this one needs to be fixed, because the pagination is not working
+        List<Manageraccount> pageWithRel = manageraccountRepository.findAllWithEagerRelationships();
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/manageraccounts");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        return new ResponseEntity<>(pageWithRel, headers, HttpStatus.OK);
     }
 
     /**

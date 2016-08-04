@@ -1,13 +1,13 @@
 <div>
-    <h2>Manageraccounts</h2>
+    <h2>Efforttypes</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="manageraccount.new" >
+                <button class="btn btn-primary" ui-sref="efforttype.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span >
-                        Create new Manageraccount
+                        Create new Efforttype
                     </span>
                 </button>
             </div>
@@ -17,42 +17,32 @@
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
-                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
                     <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="name"><span>Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="password"><span>Password</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="status"><span>Status</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="status"><span>Projects</span> <span class="glyphicon glyphicon-sort"></span></th>
-
+                    <th></th>
                 </tr>
             </thead>
-            <tbody>
-                <tr ng-repeat="manageraccount in vm.manageraccounts track by manageraccount.id">
-                    <td><a ui-sref="manageraccount-detail({id:manageraccount.id})">{{manageraccount.id}}</a></td>
-                    <td>{{manageraccount.name}}</td>
-                    <td>{{manageraccount.password}}</td>
-                    <td>{{manageraccount.status}}</td>
-                    <td>
-                         <span ng-repeat="project in manageraccount.projects">
-                            {{project.name}}
-                         </span>
-                    </td>
+            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="efforttype in vm.efforttypes track by efforttype.id">
+                    <td><a ui-sref="efforttype-detail({id:efforttype.id})">{{efforttype.id}}</a></td>
+                    <td>{{efforttype.name}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
-                                    ui-sref="manageraccount-detail({id:manageraccount.id})"
+                                    ui-sref="efforttype-detail({id:efforttype.id})"
                                     class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm"></span>
                             </button>
                             <button type="submit"
-                                    ui-sref="manageraccount.edit({id:manageraccount.id})"
+                                    ui-sref="efforttype.edit({id:efforttype.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
                                 <span class="hidden-xs hidden-sm"></span>
                             </button>
                             <button type="submit"
-                                    ui-sref="manageraccount.delete({id:manageraccount.id})"
+                                    ui-sref="efforttype.delete({id:efforttype.id})"
                                     class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm"></span>
@@ -62,9 +52,5 @@
                 </tr>
             </tbody>
         </table>
-    </div>
-    <div class="text-center">
-        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
-        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
     </div>
 </div>
