@@ -1,6 +1,7 @@
 package management.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import management.domain.Item;
 import management.domain.Manageraccount;
 import management.repository.ManageraccountRepository;
 import management.web.rest.util.HeaderUtil;
@@ -88,26 +89,30 @@ public class ManageraccountResource {
             .body(result);
     }
 
+
     /**
      * GET  /manageraccounts : get all the manageraccounts.
      *
-     * @param pageable the pagination information
      * @return the ResponseEntity with status 200 (OK) and the list of manageraccounts in body
-     * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
      */
+
+
     @RequestMapping(value = "/manageraccounts",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<List<Manageraccount>> getAllManageraccounts(Pageable pageable)
-        throws URISyntaxException {
+    public List<Manageraccount> getAllManageraccounts()
+    {
         log.debug("REST request to get a page of Manageraccounts");
-        Page<Manageraccount> page = manageraccountRepository.findAll(pageable);
-        //TODO this one needs to be fixed, because the pagination is not working
+
         List<Manageraccount> pageWithRel = manageraccountRepository.findAllWithEagerRelationships();
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/manageraccounts");
-        return new ResponseEntity<>(pageWithRel, headers, HttpStatus.OK);
+
+        return pageWithRel;
     }
+
+
+
+
 
     /**
      * GET  /manageraccounts/:id : get the "id" manageraccount.
