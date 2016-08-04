@@ -1,0 +1,28 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "project",
+            "otherEntityName": "project",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "releasejira",
+            "otherEntityName": "releasejira",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "year",
+            "otherEntityName": "year",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "year"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20160804154236",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "projectrelease",
+    "pagination": "no"
+}

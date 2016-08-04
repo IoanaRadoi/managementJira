@@ -1,0 +1,18 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "year",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "4"
+        }
+    ],
+    "changelogDate": "20160804153419",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "year",
+    "pagination": "no"
+}

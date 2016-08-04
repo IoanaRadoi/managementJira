@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Projectrelease.
+    -->
+    <changeSet id="20160804154236-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="project_id"
+                                 baseTableName="projectrelease"
+                                 constraintName="fk_projectrelease_project_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="project"/>
+
+        <addForeignKeyConstraint baseColumnNames="releasejira_id"
+                                 baseTableName="projectrelease"
+                                 constraintName="fk_projectrelease_releasejira_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="releasejira"/>
+
+        <addForeignKeyConstraint baseColumnNames="year_id"
+                                 baseTableName="projectrelease"
+                                 constraintName="fk_projectrelease_year_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="year"/>
+
+    </changeSet>
+</databaseChangeLog>

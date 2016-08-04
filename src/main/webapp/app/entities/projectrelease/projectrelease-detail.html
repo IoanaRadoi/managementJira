@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span>Projectrelease</span> {{vm.projectrelease.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Project</span></dt>
+        <dd>
+            <a ui-sref="project-detail({id:vm.projectrelease.project.id})">{{vm.projectrelease.project.name}}</a>
+        </dd>
+        <dt><span>Releasejira</span></dt>
+        <dd>
+            <a ui-sref="releasejira-detail({id:vm.projectrelease.releasejira.id})">{{vm.projectrelease.releasejira.name}}</a>
+        </dd>
+        <dt><span>Year</span></dt>
+        <dd>
+            <a ui-sref="year-detail({id:vm.projectrelease.year.id})">{{vm.projectrelease.year.year}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="projectrelease-detail.edit({id:vm.projectrelease.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>
