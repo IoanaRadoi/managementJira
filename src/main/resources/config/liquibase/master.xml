@@ -13,8 +13,12 @@
     <include file="classpath:config/liquibase/changelog/20160804151936_added_entity_Sprint.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160804153419_added_entity_Year.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160804154236_added_entity_Projectrelease.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160804162344_added_entity_Projectreleasesprint.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160804163324_added_entity_Storypoint.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="classpath:config/liquibase/changelog/20160804112119_added_entity_constraints_Manageraccount.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160804154236_added_entity_constraints_Projectrelease.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160804162344_added_entity_constraints_Projectreleasesprint.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160804163324_added_entity_constraints_Storypoint.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

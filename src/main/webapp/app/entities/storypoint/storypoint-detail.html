@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span>Storypoint</span> {{vm.storypoint.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Storypoint</span></dt>
+        <dd>
+            <span>{{vm.storypoint.storypoint}}</span>
+        </dd>
+        <dt><span>Projectreleasesprint</span></dt>
+        <dd>
+            <a ui-sref="projectreleasesprint-detail({id:vm.storypoint.projectreleasesprint.id})">{{vm.storypoint.projectreleasesprint.id}}</a>
+        </dd>
+        <dt><span>Efforttype</span></dt>
+        <dd>
+            <a ui-sref="efforttype-detail({id:vm.storypoint.efforttype.id})">{{vm.storypoint.efforttype.name}}</a>
+        </dd>
+        <dt><span>Item</span></dt>
+        <dd>
+            <a ui-sref="item-detail({id:vm.storypoint.item.id})">{{vm.storypoint.item.name}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="storypoint-detail.edit({id:vm.storypoint.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

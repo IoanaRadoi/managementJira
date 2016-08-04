@@ -1,0 +1,68 @@
+<div>
+    <h2>Storypoints</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="storypoint.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Storypoint
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Storypoint</span></th>
+                    <th><span>Projectreleasesprint</span></th>
+                    <th><span>Efforttype</span></th>
+                    <th><span>Item</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="storypoint in vm.storypoints track by storypoint.id">
+                    <td><a ui-sref="storypoint-detail({id:storypoint.id})">{{storypoint.id}}</a></td>
+                    <td>{{storypoint.storypoint}}</td>
+                    <td>
+                        <a ui-sref="projectreleasesprint-detail({id:storypoint.projectreleasesprint.id})">{{storypoint.projectreleasesprint.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="efforttype-detail({id:storypoint.efforttype.id})">{{storypoint.efforttype.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="item-detail({id:storypoint.item.id})">{{storypoint.item.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="storypoint-detail({id:storypoint.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="storypoint.edit({id:storypoint.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="storypoint.delete({id:storypoint.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

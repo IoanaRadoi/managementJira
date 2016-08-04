@@ -1,0 +1,45 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "projectreleasesprint",
+            "otherEntityName": "projectreleasesprint",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "efforttype",
+            "otherEntityName": "efforttype",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "item",
+            "otherEntityName": "item",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "storypoint",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160804163324",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "storypoint",
+    "pagination": "no"
+}

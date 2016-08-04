@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Storypoint.
+    -->
+    <changeSet id="20160804163324-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="projectreleasesprint_id"
+                                 baseTableName="storypoint"
+                                 constraintName="fk_storypoint_projectreleasesprint_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="projectreleasesprint"/>
+
+        <addForeignKeyConstraint baseColumnNames="efforttype_id"
+                                 baseTableName="storypoint"
+                                 constraintName="fk_storypoint_efforttype_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="efforttype"/>
+
+        <addForeignKeyConstraint baseColumnNames="item_id"
+                                 baseTableName="storypoint"
+                                 constraintName="fk_storypoint_item_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="item"/>
+
+    </changeSet>
+</databaseChangeLog>
