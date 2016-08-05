@@ -1,8 +1,13 @@
 package management.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import management.domain.Project;
+import management.domain.Projectreleasesprint;
 import management.domain.Storypoint;
+import management.repository.ProjectRepository;
+import management.repository.ProjectreleasesprintRepository;
 import management.repository.StorypointRepository;
+import management.web.rest.dto.StoryPointsPerSprintDTO;
 import management.web.rest.util.HeaderUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +21,7 @@ import javax.inject.Inject;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,10 +33,16 @@ import java.util.Optional;
 public class StorypointResource {
 
     private final Logger log = LoggerFactory.getLogger(StorypointResource.class);
-        
+
     @Inject
     private StorypointRepository storypointRepository;
-    
+
+    @Inject
+    private ProjectRepository projectRepository;
+
+    @Inject
+    private ProjectreleasesprintRepository projectreleasesprintRepository;
+
     /**
      * POST  /storypoints : Create a new storypoint.
      *
@@ -89,7 +101,29 @@ public class StorypointResource {
     public List<Storypoint> getAllStorypoints() {
         log.debug("REST request to get all Storypoints");
         List<Storypoint> storypoints = storypointRepository.findAll();
+        //List<Storypoint> storypointFiltered =  storypointRepository.countStoryPointPerSprint(Long.valueOf(1));
+
         return storypoints;
+    }
+
+
+    @RequestMapping(value = "/storypointsPerSprint",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public List<StoryPointsPerSprintDTO> getTotalStorypointsPerSprint() {
+
+
+        List<StoryPointsPerSprintDTO>  storyPointsPerSprintDTOs = new ArrayList<>();
+        for(Projectreleasesprint projectreleasesprint: projectreleasesprintRepository.findAll()){
+
+            Integer totalStoryPointPerSprint = storypointRepository.countStoryPointPerSprint(projectreleasesprint.getId());
+
+            storyPointsPerSprintDTOs.add(new StoryPointsPerSprintDTO(projectreleasesprint.getProjectrelease().getYear().getYear(),projectreleasesprint.getProjectrelease().getReleasejira().getName(), projectreleasesprint.getProjectrelease().getProject().getName(), projectreleasesprint.getSprint().getName(), totalStoryPointPerSprint));
+
+        }
+
+        return storyPointsPerSprintDTOs;
     }
 
     /**
