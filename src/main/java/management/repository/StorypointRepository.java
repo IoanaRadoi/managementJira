@@ -13,7 +13,7 @@ import java.util.List;
 @SuppressWarnings("unused")
 public interface StorypointRepository extends JpaRepository<Storypoint,Long> {
 
-    @Query("select count(sp.storypoint) from Storypoint sp where sp.projectreleasesprint.id = :idSprint")
+    @Query("select sum(sp.storypoint) from Storypoint sp where sp.projectreleasesprint.id = :idSprint")
     Integer countStoryPointPerSprint(@Param("idSprint") Long idSprint);
 
 }

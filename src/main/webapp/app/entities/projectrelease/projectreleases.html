@@ -66,14 +66,7 @@
 
     </div>
 
-    <div zingchart id="chart-1" zc-json="myJson" zc-width="100%" zc-height="500px"></div>
-    <!--<div id="controls">-->
-        <!--<section>-->
-            <!--<label>Add random values : </label><button ng-click="addValues()"> append </button>-->
-        <!--</section>-->
-        <!--<section>-->
-            <!--<label>Title Text : </label><input type="text" ng-model="myJson.title.text"/>-->
-        <!--</section>-->
-
-    <!--</div>-->
+    <canvas id="bar" class="chart chart-bar"
+            chart-data="data" chart-labels="labels"> chart-series="series"
+    </canvas>
 </div>

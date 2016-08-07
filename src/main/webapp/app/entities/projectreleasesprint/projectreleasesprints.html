@@ -30,7 +30,7 @@
                     <td><a ui-sref="projectreleasesprint-detail({id:projectreleasesprint.id})">{{projectreleasesprint.id}}</a></td>
                     <td>{{projectreleasesprint.capacity}}</td>
                     <td>
-                        <a ui-sref="projectrelease-detail({id:projectreleasesprint.projectrelease.id})">{{projectreleasesprint.projectrelease.id}}</a>
+                        <a ui-sref="projectrelease-detail({id:projectreleasesprint.projectrelease.id})">{{projectreleasesprint.projectrelease.project.name}} - {{projectreleasesprint.projectrelease.releasejira.name}}</a>
                     </td>
                     <td>
                         <a ui-sref="sprint-detail({id:projectreleasesprint.sprint.id})">{{projectreleasesprint.sprint.name}}</a>

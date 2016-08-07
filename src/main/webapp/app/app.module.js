@@ -13,8 +13,8 @@
             'ui.bootstrap.datetimepicker',
             'ui.router',
             'infinite-scroll',
+            'chart.js'
             // jhipster-needle-angularjs-add-module JHipster will add new module here
-            'zingchart-angularjs'
         ])
         .run(run);
 

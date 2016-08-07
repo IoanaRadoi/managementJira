@@ -31,7 +31,7 @@
                     <td><a ui-sref="storypoint-detail({id:storypoint.id})">{{storypoint.id}}</a></td>
                     <td>{{storypoint.storypoint}}</td>
                     <td>
-                        <a ui-sref="projectreleasesprint-detail({id:storypoint.projectreleasesprint.id})">{{storypoint.projectreleasesprint.id}}</a>
+                        <a ui-sref="projectreleasesprint-detail({id:storypoint.projectreleasesprint.id})">{{storypoint.projectreleasesprint.projectrelease.project.name}} - {{storypoint.projectreleasesprint.projectrelease.releasejira.name}} - {{storypoint.projectreleasesprint.sprint.name}}</a>
                     </td>
                     <td>
                         <a ui-sref="efforttype-detail({id:storypoint.efforttype.id})">{{storypoint.efforttype.name}}</a>

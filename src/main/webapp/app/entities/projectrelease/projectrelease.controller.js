@@ -20,26 +20,13 @@
             });
         }
 
-       $scope.myJson = {
-             type : "bar",
-             title:{
-               backgroundColor : "transparent",
-               fontColor :"black",
-               text : "Hello world"
-             },
-             backgroundColor : "white",
-             series : [
-               {
-                 values : [1,2,3,4],
-                 backgroundColor : "#4DC0CF"
-               }
-             ]
-           };
+        $scope.labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+          $scope.series = ['Series A'];
 
-//         $scope.addValues = function(){
-//           var val = Math.floor((Math.random() * 10));
-//           console.log(val);
-//           $scope.myJson.series[0].values.push(val);
-//         }
+          $scope.data = [
+            [65, 59, 80, 81, 56, 55, 40]
+          ];
+
+
     }
 })();
