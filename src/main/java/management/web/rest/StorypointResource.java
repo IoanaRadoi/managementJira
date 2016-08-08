@@ -119,7 +119,7 @@ public class StorypointResource {
 
             Integer totalStoryPointPerSprint = storypointRepository.countStoryPointPerSprint(projectreleasesprint.getId());
             if (totalStoryPointPerSprint!=null) {
-                storyPointsPerSprintDTOs.add(new StoryPointsPerSprintDTO(projectreleasesprint.getProjectrelease().getYear().getYear(), projectreleasesprint.getProjectrelease().getReleasejira().getName(), projectreleasesprint.getProjectrelease().getProject().getName(), projectreleasesprint.getSprint().getName(), totalStoryPointPerSprint));
+                storyPointsPerSprintDTOs.add(new StoryPointsPerSprintDTO(projectreleasesprint.getProjectrelease().getYear().getYear(), projectreleasesprint.getProjectrelease().getReleasejira().getName(), projectreleasesprint.getProjectrelease().getProject().getName(), projectreleasesprint.getSprint().getName(), totalStoryPointPerSprint, projectreleasesprint.getCapacity()));
             }
         }
 

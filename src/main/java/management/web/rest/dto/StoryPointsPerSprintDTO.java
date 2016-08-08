@@ -12,18 +12,20 @@ public class StoryPointsPerSprintDTO implements Serializable {
     private String project;
     private String sprint;
     private Integer totalStoryPointsPerSprint;
+    private Integer sprintCapacity;
 
     public StoryPointsPerSprintDTO() {
     }
 
-    public StoryPointsPerSprintDTO(String year, String release, String project, String sprint, Integer totalStoryPointsPerSprint) {
+
+    public StoryPointsPerSprintDTO(String year, String release, String project, String sprint, Integer totalStoryPointsPerSprint, Integer sprintCapacity) {
         this.year = year;
         this.release = release;
         this.project = project;
         this.sprint = sprint;
         this.totalStoryPointsPerSprint = totalStoryPointsPerSprint;
+        this.sprintCapacity = sprintCapacity;
     }
-
 
     public String getYear() {
         return year;
@@ -63,5 +65,13 @@ public class StoryPointsPerSprintDTO implements Serializable {
 
     public void setTotalStoryPointsPerSprint(Integer totalStoryPointsPerSprint) {
         this.totalStoryPointsPerSprint = totalStoryPointsPerSprint;
+    }
+
+    public Integer getSprintCapacity() {
+        return sprintCapacity;
+    }
+
+    public void setSprintCapacity(Integer sprintCapacity) {
+        this.sprintCapacity = sprintCapacity;
     }
 }
