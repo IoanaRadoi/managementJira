@@ -155,7 +155,31 @@
                     $state.go('^');
                 });
             }]
-        });
+        })
+        .state('storypoint.charts', {
+                    parent: 'storypoint',
+                    url: '/charts',
+                    data: {
+                        authorities: ['ROLE_USER']
+                    },
+                    onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                        $uibModal.open({
+                            templateUrl: 'app/entities/storypoint/storypoint-charts.html',
+                            controller: 'StorypointChartsController',
+                            controllerAs: 'vm',
+                            size: 'md',
+                            resolve: {
+                                entity: ['Storypoint', function(Storypoint) {
+                                    return Storypoint.get({id : $stateParams.id}).$promise;
+                                }]
+                            }
+                        }).result.then(function() {
+                            $state.go('storypoint', null, { reload: true });
+                        }, function() {
+                            $state.go('^');
+                        });
+                    }]
+                });
     }
 
 })();

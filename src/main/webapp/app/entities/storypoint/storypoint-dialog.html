@@ -32,7 +32,7 @@
 
         <div class="form-group">
             <label for="field_projectreleasesprint">Projectreleasesprint</label>
-            <select class="form-control" id="field_projectreleasesprint" name="projectreleasesprint" ng-model="vm.storypoint.projectreleasesprint" ng-options="projectreleasesprint as projectreleasesprint.id for projectreleasesprint in vm.projectreleasesprints track by projectreleasesprint.id" required>
+            <select class="form-control" id="field_projectreleasesprint" name="projectreleasesprint" ng-model="vm.storypoint.projectreleasesprint" ng-options="projectreleasesprint as projectreleasesprint.projectrelease.year.year + ' ' + projectreleasesprint.projectrelease.releasejira.name + ' ' + projectreleasesprint.projectrelease.project.name + ' ' + projectreleasesprint.sprint.name  for projectreleasesprint in vm.projectreleasesprints track by projectreleasesprint.id" required>
                 <option value=""></option>
             </select>
         </div>

@@ -1,0 +1,21 @@
+<div>
+    <h2>Statistics</h2>
+
+    <div class="form-group">
+        <h3>Project Release</h3>
+        <multiselect class="input-xlarge" multiple="true" ng-model="vm.projectreleasesSelected"
+                options="projectrelease as projectrelease.year.year + ' ' + projectrelease.releasejira.name + ' ' + projectrelease.project.name for projectrelease in vm.projectreleases" required>
+
+        </multiselect>
+    </div>
+
+
+    <canvas id="barForTotalStoryPointsPerSprint" class="chart chart-bar"
+            chart-data="data" chart-labels="labels" chart-series="series">
+    </canvas>
+
+    <canvas id="barForAveragePerSprint" class="chart chart-bar"
+            chart-data="dataForAv" chart-labels="labels" chart-series="seriesAv">
+    </canvas>
+
+</div>

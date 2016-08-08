@@ -32,7 +32,7 @@
 
         <div class="form-group">
             <label for="field_projectrelease">Projectrelease</label>
-            <select class="form-control" id="field_projectrelease" name="projectrelease" ng-model="vm.projectreleasesprint.projectrelease" ng-options="projectrelease as projectrelease.id for projectrelease in vm.projectreleases track by projectrelease.id" required>
+            <select class="form-control" id="field_projectrelease" name="projectrelease" ng-model="vm.projectreleasesprint.projectrelease" ng-options="projectrelease as projectrelease.year.year + ' ' + projectrelease.releasejira.name + ' ' + projectrelease.project.name for projectrelease in vm.projectreleases track by projectrelease.id" required>
                 <option value=""></option>
             </select>
         </div>
