@@ -21,28 +21,24 @@
             });
         }
 
+        $scope.labels = [];
+        $scope.data = [];
 
         $http({
           method: 'GET',
           url: '/api/storypointsPerSprint'
         }).then(function successCallback(response) {
             vm.storypointsPerSprint = response.data;
+             angular.forEach(vm.storypointsPerSprint, function(value){
+                          $scope.labels.push(value.project + " " + value.year + " " + value.release + " " + value.sprint);
+                          $scope.data.push(value.totalStoryPointsPerSprint);
+                       });
         });
 
-       /* $scope.myJson = {
-                     type : "bar",
-                     title:{
-                       backgroundColor : "transparent",
-                       fontColor :"black",
-                       text : "Story points per Sprint"
-                     },
-                     backgroundColor : "white",
-                     series : [
-                       {
-                         values : [1,2,3,4],
-                         backgroundColor : "#4DC0CF"
-                       }
-                     ]
-                   };*/
+
+
+
+
+
     }
 })();
