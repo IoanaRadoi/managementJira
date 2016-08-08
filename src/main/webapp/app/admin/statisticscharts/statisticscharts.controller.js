@@ -12,6 +12,8 @@
 
             var vm = this;
 
+            vm.projectreleasesSelected = [];
+
 
 
             vm.projectreleases = [];
@@ -25,25 +27,41 @@
                     }
 
             vm.storypointsPerSprint = [];
-            $scope.labels = [];
-            $scope.data = [];
 
-            $scope.dataForAv = [];
-            $scope.series = ['Story points Per Sprint'];
-            $scope.seriesAv = ['Average Per Sprint'];
 
             $http({
                 method: 'GET',
                 url: '/api/storypointsPerSprint'
             }).then(function successCallback(response) {
                 vm.storypointsPerSprint = response.data;
-
-                     angular.forEach(vm.storypointsPerSprint, function(value){
-                                  $scope.labels.push(value.project + " " + value.year + " " + value.release + " " + value.sprint);
-                                  $scope.data.push(value.totalStoryPointsPerSprint);
-                                  $scope.average =  value.totalStoryPointsPerSprint/value.sprintCapacity
-                                  $scope.dataForAv.push($scope.average);
-                               });
             });
+
+
+
+            $scope.sendData = function(){
+                $scope.labels = [];
+                $scope.data = [];
+
+                $scope.dataForAv = [];
+                $scope.series = ['Story points Per Sprint'];
+                $scope.seriesAv = ['Average Per Sprint'];
+
+                //we need to select vm.storypointsPerSprint so that to involve only the ones selected
+
+                angular.forEach(vm.storypointsPerSprint, function(value1){
+
+                    angular.forEach(vm.projectreleasesSelected, function(value2){
+
+                        if (value2.id == value1.idProjectRelease){  //if the storypoint coming from server has a projectrelease selected
+
+                            $scope.labels.push(value1.project + " " + value1.year + " " + value1.release + " " + value1.sprint);
+                            $scope.data.push(value1.totalStoryPointsPerSprint);
+                            $scope.average =  value1.totalStoryPointsPerSprint/value1.sprintCapacity
+                            $scope.dataForAv.push($scope.average);
+
+                        }
+                    });
+                });
+            }
     }
 })();

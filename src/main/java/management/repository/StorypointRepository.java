@@ -16,4 +16,7 @@ public interface StorypointRepository extends JpaRepository<Storypoint,Long> {
     @Query("select sum(sp.storypoint) from Storypoint sp where sp.projectreleasesprint.id = :idSprint")
     Integer countStoryPointPerSprint(@Param("idSprint") Long idSprint);
 
+    @Query("select sum(sp.storypoint) from Storypoint sp where sp.projectreleasesprint.id = :idSprint and sp.item.id = :idItem")
+    Integer sumStoryPointPerSprintGroupByItem(@Param("idSprint") Long idSprint, @Param("idItem") Long idItem);
+
 }

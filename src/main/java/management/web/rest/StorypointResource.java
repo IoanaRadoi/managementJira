@@ -1,12 +1,15 @@
 package management.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import management.domain.Item;
 import management.domain.Project;
 import management.domain.Projectreleasesprint;
 import management.domain.Storypoint;
+import management.repository.ItemRepository;
 import management.repository.ProjectRepository;
 import management.repository.ProjectreleasesprintRepository;
 import management.repository.StorypointRepository;
+import management.web.rest.dto.CategorySprintDTo;
 import management.web.rest.dto.StoryPointsPerSprintDTO;
 import management.web.rest.util.HeaderUtil;
 import org.slf4j.Logger;
@@ -39,6 +42,9 @@ public class StorypointResource {
 
     @Inject
     private ProjectRepository projectRepository;
+
+    @Inject
+    private ItemRepository itemRepository;
 
     @Inject
     private ProjectreleasesprintRepository projectreleasesprintRepository;
@@ -107,6 +113,41 @@ public class StorypointResource {
     }
 
 
+
+
+    @RequestMapping(value = "/storypointsDetailsPerSprint",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public List<CategorySprintDTo> getAllStorypointsPerSprint() {
+
+        List<Projectreleasesprint> projectreleasesprints = projectreleasesprintRepository.findAll();
+        List<Item> categories = itemRepository.findAll();
+
+        List<CategorySprintDTo> categoriesPerSprint = new ArrayList<>();
+
+        for(Projectreleasesprint prs: projectreleasesprints){
+            CategorySprintDTo categorySprintDTo = new CategorySprintDTo();
+
+            for(Item item:categories) {
+                Integer sum = storypointRepository.sumStoryPointPerSprintGroupByItem(prs.getId(), item.getId());
+
+
+                categorySprintDTo.getValuePerCategorie().put(item,sum);
+
+            }
+
+            categorySprintDTo.setIdProjectReleaseSprint(prs.getId());
+
+
+
+        }
+
+
+        return categoriesPerSprint;
+    }
+
+
     @RequestMapping(value = "/storypointsPerSprint",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
@@ -119,7 +160,7 @@ public class StorypointResource {
 
             Integer totalStoryPointPerSprint = storypointRepository.countStoryPointPerSprint(projectreleasesprint.getId());
             if (totalStoryPointPerSprint!=null) {
-                storyPointsPerSprintDTOs.add(new StoryPointsPerSprintDTO(projectreleasesprint.getProjectrelease().getYear().getYear(), projectreleasesprint.getProjectrelease().getReleasejira().getName(), projectreleasesprint.getProjectrelease().getProject().getName(), projectreleasesprint.getSprint().getName(), totalStoryPointPerSprint, projectreleasesprint.getCapacity()));
+                storyPointsPerSprintDTOs.add(new StoryPointsPerSprintDTO(projectreleasesprint.getProjectrelease().getYear().getYear(), projectreleasesprint.getProjectrelease().getReleasejira().getName(), projectreleasesprint.getProjectrelease().getProject().getName(), projectreleasesprint.getSprint().getName(), totalStoryPointPerSprint, projectreleasesprint.getCapacity(), projectreleasesprint.getProjectrelease().getId()));
             }
         }
 

@@ -2,20 +2,31 @@
     <h2>Statistics</h2>
 
     <div class="form-group">
-        <h3>Project Release</h3>
-        <multiselect class="input-xlarge" multiple="true" ng-model="vm.projectreleasesSelected"
-                options="projectrelease as projectrelease.year.year + ' ' + projectrelease.releasejira.name + ' ' + projectrelease.project.name for projectrelease in vm.projectreleases" required>
-
-        </multiselect>
+        <h4>Project Release:</h4>
+        <select multiple name="authority" ng-model="vm.projectreleasesSelected"
+                ng-options="projectrelease as projectrelease.year.year + ' ' + projectrelease.releasejira.name + ' ' + projectrelease.project.name for projectrelease in vm.projectreleases" required>
+        </select>
     </div>
 
+    <button class="btn btn-primary" ng-click="sendData()">Send data</button>
 
-    <canvas id="barForTotalStoryPointsPerSprint" class="chart chart-bar"
-            chart-data="data" chart-labels="labels" chart-series="series">
-    </canvas>
+</div>
 
-    <canvas id="barForAveragePerSprint" class="chart chart-bar"
-            chart-data="dataForAv" chart-labels="labels" chart-series="seriesAv">
-    </canvas>
+
+<div class="box" ng-show="data.length  > 0">
+    <h3>Story points per Sprint</h3>
+    <div class="container-fluid">
+        <canvas id="barForTotalStoryPointsPerSprint" class="chart chart-bar"
+                chart-data="data" chart-labels="labels" chart-series="series">
+        </canvas>
+    </div>
+
+    <h3>Average per Sprint</h3>
+    <div class="container-fluid">
+        <canvas id="barForAveragePerSprint" class="chart chart-bar"
+                chart-data="dataForAv" chart-labels="labels" chart-series="seriesAv">
+        </canvas>
+    </div>
+
 
 </div>
