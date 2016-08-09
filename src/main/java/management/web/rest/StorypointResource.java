@@ -133,13 +133,13 @@ public class StorypointResource {
                 Integer sum = storypointRepository.sumStoryPointPerSprintGroupByItem(prs.getId(), item.getId());
 
 
-                categorySprintDTo.getValuePerCategorie().put(item,sum);
+                categorySprintDTo.getValuePerCategorie().put(item.getName(),sum);
 
             }
 
             categorySprintDTo.setIdProjectReleaseSprint(prs.getId());
 
-
+            categoriesPerSprint.add(categorySprintDTo);
 
         }
 

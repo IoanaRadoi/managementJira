@@ -3,16 +3,19 @@
 
     <div class="form-group">
         <h4>Project - Release - Sprint:</h4>
-        <select class="form-control" name="projectreleasesprint" ng-model="vm.projectreleasesprintSelected" ng-options="projectreleasesprint as projectreleasesprint.projectrelease.year.year + ' ' + projectreleasesprint.projectrelease.releasejira.name + ' ' + projectreleasesprint.projectrelease.project.name + ' ' + projectreleasesprint.sprint.name  for projectreleasesprint in vm.projectreleasesprints" required>
+        <select name="projectreleasesprint" ng-model="vm.projectreleasesprintSelected" ng-options="projectreleasesprint as projectreleasesprint.projectrelease.year.year + ' ' + projectreleasesprint.projectrelease.releasejira.name + ' ' + projectreleasesprint.projectrelease.project.name + ' ' + projectreleasesprint.sprint.name  for projectreleasesprint in vm.projectreleasesprints" required>
             <option value=""></option>
         </select>
     </div>
 
     <button class="btn btn-primary" ng-click="sendData()">Send data</button>
+</div>
 
 
+<div class="box" ng-show="vm.projectreleasesprintSelected.id!=null">
+
+    <h3>Sprint selected per items</h3>
     <canvas id="pie" class="chart chart-pie"
             chart-data="data" chart-labels="labels" chart-options="options">
     </canvas>
-
 </div>

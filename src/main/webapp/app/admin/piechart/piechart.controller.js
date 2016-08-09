@@ -21,10 +21,6 @@ var vm = this;
             });
         }
 
-
-
-
-
        $http({
                        method: 'GET',
                        url: '/api/storypointsDetailsPerSprint'
@@ -32,31 +28,22 @@ var vm = this;
                        vm.categoriesPerSprint = response.data;
                    });
 
-
         $scope.sendData = function(){
                         $scope.labels = [];
                         $scope.data = [];
 
-
-
-
                         angular.forEach(vm.categoriesPerSprint, function(value1){
 
-
-                            if(value1.idProjectReleaseSprint = vm.projectreleasesprintSelected.id){
-
-
-
+                            if(value1.idProjectReleaseSprint == vm.projectreleasesprintSelected.id){
 
                                 angular.forEach(value1.valuePerCategorie, function(value, key) {
                                     $scope.data.push(value);
-                                    $scope.labels.push(key.name);
+                                    $scope.labels.push(key);
 
                                 });
                             }
 
                         });
                     }
-
     }
 })();

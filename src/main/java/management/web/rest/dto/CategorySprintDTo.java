@@ -12,11 +12,11 @@ import java.util.Map;
 public class CategorySprintDTo {
 
 
-    private Map<Item, Integer> valuePerCategorie;
+    private Map<String, Integer> valuePerCategorie;
 
     private Long idProjectReleaseSprint;
 
-    public CategorySprintDTo(Map<Item, Integer> valuePerCategorie, Long idProjectReleaseSprint) {
+    public CategorySprintDTo(Map<String, Integer> valuePerCategorie, Long idProjectReleaseSprint) {
         this.valuePerCategorie = valuePerCategorie;
         this.idProjectReleaseSprint = idProjectReleaseSprint;
     }
@@ -26,11 +26,11 @@ public class CategorySprintDTo {
         this.valuePerCategorie = new HashMap<>();
     }
 
-    public Map<Item, Integer> getValuePerCategorie() {
+    public Map<String, Integer> getValuePerCategorie() {
         return valuePerCategorie;
     }
 
-    public void setValuePerCategorie(Map<Item, Integer> valuePerCategorie) {
+    public void setValuePerCategorie(Map<String, Integer> valuePerCategorie) {
         this.valuePerCategorie = valuePerCategorie;
     }
 
