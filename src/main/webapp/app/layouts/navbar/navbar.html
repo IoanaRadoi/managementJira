@@ -15,7 +15,7 @@
                         <span>
                             <span class="glyphicon glyphicon-th-list"></span>
                             <span class="hidden-sm">
-                                Entities
+                                Data
                             </span>
                             <b class="caret"></b>
                         </span>
@@ -24,64 +24,88 @@
                         <li ui-sref-active="active" >
                             <a ui-sref="manageraccount" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                                <span >Manageraccount</span>
+                                <span >Project Managers</span>
                             </a>
                         </li>
                         <li ui-sref-active="active" >
                             <a ui-sref="project" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                                <span >Project</span>
+                                <span >Projects</span>
                             </a>
                         </li>
                         <li ui-sref-active="active" >
                             <a ui-sref="efforttype" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                                <span >Efforttype</span>
+                                <span >Effort types</span>
                             </a>
                         </li>
                         <li ui-sref-active="active" >
                             <a ui-sref="item" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                                <span >Item</span>
+                                <span >Item types</span>
                             </a>
                         </li>
                         <li ui-sref-active="active" >
                             <a ui-sref="releasejira" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                                <span >Releasejira</span>
+                                <span >Releases</span>
                             </a>
                         </li>
                         <li ui-sref-active="active" >
                             <a ui-sref="sprint" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                                <span >Sprint</span>
+                                <span >Sprints</span>
                             </a>
                         </li>
                         <li ui-sref-active="active" >
                             <a ui-sref="year" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                                <span>Date</span>
+                                <span>Date (year)</span>
                             </a>
                         </li>
                         <li ui-sref-active="active" >
                             <a ui-sref="projectrelease" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                                <span >Projectrelease</span>
+                                <span >Project - releases</span>
                             </a>
                         </li>
                         <li ui-sref-active="active" >
                             <a ui-sref="projectreleasesprint" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                                <span >Projectreleasesprint</span>
+                                <span >Project - release - sprint</span>
                             </a>
                         </li>
                         <li ui-sref-active="active" >
                             <a ui-sref="storypoint" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                                <span >Storypoint</span>
+                                <span >Story points</span>
                             </a>
                         </li>
                         <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+                    </ul>
+                </li>
+                <li ng-class="{active: vm.$state.includes('admin')}"  ng-switch-when="true" has-authority="ROLE_USER" uib-dropdown class="dropdown pointer">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="admin-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-tower"></span>
+                            <span class="hidden-sm">Statistics</span>
+                            <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li ui-sref-active="active">
+                            <a ui-sref="statisticscharts" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-tower"></span>&nbsp;
+                                <span>Story points statistics</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="piechart" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-tower"></span>&nbsp;
+                                <span>Sprint statistics</span>
+                            </a>
+                        </li>
+                        <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
                     </ul>
                 </li>
                 <li ng-class="{active: vm.$state.includes('account')}" uib-dropdown class="dropdown pointer">
@@ -113,30 +137,6 @@
                                 <span>Register</span>
                             </a>
                         </li>
-                    </ul>
-                </li>
-                <li ng-class="{active: vm.$state.includes('admin')}"  ng-switch-when="true" has-authority="ROLE_USER" uib-dropdown class="dropdown pointer">
-                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="admin-menu">
-                        <span>
-                            <span class="glyphicon glyphicon-tower"></span>
-                            <span class="hidden-sm">Statistics</span>
-                            <b class="caret"></b>
-                        </span>
-                    </a>
-                    <ul class="dropdown-menu" uib-dropdown-menu>
-                        <li ui-sref-active="active">
-                            <a ui-sref="statisticscharts" ng-click="vm.collapseNavbar()">
-                                <span class="glyphicon glyphicon-tower"></span>&nbsp;
-                                <span>Story points statistics</span>
-                            </a>
-                        </li>
-                        <li ui-sref-active="active">
-                            <a ui-sref="piechart" ng-click="vm.collapseNavbar()">
-                                <span class="glyphicon glyphicon-tower"></span>&nbsp;
-                                <span>Sprint statistics</span>
-                            </a>
-                        </li>
-                        <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
                     </ul>
                 </li>
             </ul>

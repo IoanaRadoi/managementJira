@@ -4,7 +4,7 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myStorypointLabel">Create or edit a Storypoint</h4>
+        <h4 class="modal-title" id="myStorypointLabel">Create or edit a Story point</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
@@ -14,7 +14,7 @@
                     ng-model="vm.storypoint.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_storypoint">Storypoint</label>
+            <label class="control-label" for="field_storypoint">Story point</label>
             <input type="number" class="form-control" name="storypoint" id="field_storypoint"
                     ng-model="vm.storypoint.storypoint"
                     required />
@@ -31,7 +31,7 @@
         </div>
 
         <div class="form-group">
-            <label for="field_projectreleasesprint">Projectreleasesprint</label>
+            <label for="field_projectreleasesprint">Project Release Sprint</label>
             <select class="form-control" id="field_projectreleasesprint" name="projectreleasesprint" ng-model="vm.storypoint.projectreleasesprint" ng-options="projectreleasesprint as projectreleasesprint.projectrelease.year.year + ' ' + projectreleasesprint.projectrelease.releasejira.name + ' ' + projectreleasesprint.projectrelease.project.name + ' ' + projectreleasesprint.sprint.name  for projectreleasesprint in vm.projectreleasesprints track by projectreleasesprint.id" required>
                 <option value=""></option>
             </select>
@@ -43,7 +43,7 @@
             </p>
         </div>
         <div class="form-group">
-            <label for="field_efforttype">Efforttype</label>
+            <label for="field_efforttype">Effort Type</label>
             <select class="form-control" id="field_efforttype" name="efforttype" ng-model="vm.storypoint.efforttype" ng-options="efforttype as efforttype.name for efforttype in vm.efforttypes track by efforttype.id" required>
                 <option value=""></option>
             </select>

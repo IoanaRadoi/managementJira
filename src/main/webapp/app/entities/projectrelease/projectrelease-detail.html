@@ -1,6 +1,6 @@
 
 <div>
-    <h2><span>Projectrelease</span> {{vm.projectrelease.id}}</h2>
+    <h2><span>Project release</span> {{vm.projectrelease.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
@@ -8,7 +8,7 @@
         <dd>
             <a ui-sref="project-detail({id:vm.projectrelease.project.id})">{{vm.projectrelease.project.name}}</a>
         </dd>
-        <dt><span>Releasejira</span></dt>
+        <dt><span>Release</span></dt>
         <dd>
             <a ui-sref="releasejira-detail({id:vm.projectrelease.releasejira.id})">{{vm.projectrelease.releasejira.name}}</a>
         </dd>
