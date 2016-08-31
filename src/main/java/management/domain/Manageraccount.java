@@ -21,10 +21,10 @@ public class Manageraccount implements Serializable {
     private Long id;
 
     @Column(name = "name")
-    private String name;
+    private String name;  //todo DE MODIFICAT IN FIRST NAME
 
     @Column(name = "password")
-    private String password;
+    private String password;   //TODO DE MODIFICAT IN LAST NAME
 
     @Column(name = "status")
     private String status;
